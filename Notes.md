@@ -184,9 +184,9 @@
 ## CSS Display
 - <span>content</span> -> Span tags ususally have a different value for the display property
 - display:
-    - block -> Takes up the entire full width
+    - block -> Takes up the entire full width (by default)
     - inline -> The next element goes to the same line (all elements inline need to go in the same line). All elements go in the same line and you cant change the height
-    - inline-block -> They can go in the same line but you can change height and width of elements
+    - inline-block -> They can go in the same line but you can change height and width of elements. Applied to the children
     - none -> Element will disappear
 
 ## CSS Float
@@ -222,7 +222,7 @@
 - flex-direction: -> This is set in the parent element
     - row
     - column
-- flex-basis: 50px -> This is set in the child element
+- flex-basis: 50px -> This is set in the child element and sets the size of the element
 
 ## Flex Layout
 - order: 3; -> Applied to child. By default is 0
@@ -315,3 +315,435 @@ And this is the same as:
 
 Note: you can overlap divs with grid
 
+
+--------------------------------------------------------------------------------------
+
+# Section 9: Bootstrap
+
+## What is Bootstrap?
+How to use it? Add within the <head> tag:
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+If you want to overwrite something add AFTERWARDS the link to your CSS sheet:
+<link rel="stylesheet" href="./css/style.css">
+
+## Bootstrap display
+Bootstrap uses a 12 column system which means that you can specify the length of your items within a row by the number of columns that occupies
+<div class:"container">
+    <div class="row">
+        <div class="col-2">Hello</div>
+        <div class="col-4">Hello</div>
+        <div class="col-6">Hello</div>
+    </div>
+</div>
+
+## Bootstrap Layout
+see docs
+
+--------------------------------------------------------------------------------------
+
+# Section 10: Web design
+
+## Color Theory -> Check Adobe color, colorhunt.co
+- Red: Love, energy, intensity
+- Yellow: Joy, Intellect, Attention
+- Green: Freshness, Safety, Growth
+- Blue: Stability, Trust, Serenity
+- Purple: Royalty, Wealth, Femenity
+
+## Typography
+- Serif -> for Serious style
+    - Old style
+    - Transitional
+    - Modern -> More difference in thickness between the thick and narrow part of a letter
+- Moods:
+    - Serif: Traditional, stable, respectable
+    - Sans-serif: Sensible, Simple, Straightforward
+    - Script: Personal, creative, elegant
+    - Display: Friendly, lous, amusing
+    - Modern: Stylish, chic, smart
+- Limit to 2 fonts. Suggested:
+    - Sans-serif
+    - Serif
+
+## User Interface: Managing attention
+- Hierarchy: You can use colors and size
+- Layout: 40 to 60 characters per line, otherwise it's too short/long
+- Alignment: Make sure everything is well aligned
+- Withe space: White space to make it cleaner and more professional
+- Audience: Think about your audience
+
+## User Experience
+- Simplicity
+
+## Web design in practice
+- https://www.dailyui.co/
+- https://collectui.com/
+
+
+--------------------------------------------------------------------------------------
+
+# Section 14 & 15: Intro to Javascript and Intermediate Javascript
+
+## Intro to JS
+- In Chrome, inspect, Sources, Snippets, New Snippet -> Playground for JS
+- Principles of Writing Consistent, Idiomatic JavaScript: https://github.com/rwaldron/idiomatic.js
+- alert("Hello world");
+- console
+
+## Data Types
+- String
+- Boolean
+- Numbers
+- typeof(varName); -> Retrurns the type of the variable
+
+# Javascript Variables
+- Var myName = prompt("What is your name?"); -> Prompt function and saves its return into a variable
+
+# Strings
+- var = "a" + "b" -> String concatenation
+- len = myString.length;
+- myString.slice(0,1);  -> It grabs the charachters from 0 (included) to 1 (not included)
+- myString = myString.toUpperCase(); -> To capitalize
+- myString = myString.toLowerCase(); -> To capitalize
+
+# Numbers
+- var e = 9 % 6; -> Gives you the rest
+- x++; -> To increment or x--; to decrease
+- x+=2;
+- Math.floor(x);
+- Math.pow(7, 2); -> 7 al cuadrado
+- var n = Math.random(); -> It generates a random number between 0 and 0.99999999
+
+# Functions
+- function getMilk() {}
+- function getMilk(bottles) {} -> With inputs
+- function getMilk(money){
+    return money % 1.5;
+}
+
+# Conditionals
+- if (track === "clear") {
+    goStright();
+} else {
+    turnRight()=;
+}
+
+- No elseif in JS
+ 
+# Comparatives
+- === -> If you use only ==, it will return yes even when data types are different (e.g. number and string)
+- !==
+- <
+- >
+- <=
+- >=
+- && -> AND
+- || -> OR
+- ! -> NOT
+
+# Arrays
+- var guestList = []
+- var guestList = ["Angela", "Jack", "Pam", "Lara"];
+- gestList.length;
+- guestList.includes("Jack");
+- guestList.push("Manu"); -> Adds the item to the end of the array
+- guestList.pop; -> It will remove the last item from the array
+
+# Loops
+- while (i<2>){
+    console.log(i);
+    i++;
+}
+
+- for (var i=0; i<2; i++) {
+    console.log(i);
+}
+
+- items.forEach((fruit) => {
+    console.log(fruit)  
+})
+
+# Section 16: The DOM
+- Forms of linking js into out web:
+    - Inline: <body onload="alert('Hello');">
+    - Internal: <script type="text/javascript"> </script>
+    - External: <script src="" charset="utf-8"> </script> -> best practice is to put it at the end right before the closing body tag </body>
+
+- DOM
+    - document.firstElementChild.firstElementChild; -> Gives you the head
+    - document.firstElementChild.lastElementChild; -> Gives you the body
+    - var heading = document.firstElementChild.lastElementChild.firstElementChild; -> I can save hmtml elements in a variable and change them
+    - heading.innerHTML =""; -> If there is html inside, it returns it
+    - heading.textContent = ""; -> Gives you the content of also the html child
+    - heading.style.color="red";
+    - document.querySelector("button").backgroundColor = "green"
+
+## Selectors
+    - document.querySelector("input").click(); -> it only returns the first one it finds
+    - document.querySelectorAll("input"); -> returns the array
+    - document.getElementsBytagName("li"); -> It returns more than one element in an array
+    - document.getElementsBytagName("li")[2].style.color = "purple"; -> To access the array
+    - document.getElementsByClassName("btn"); -> Also returns an array
+    - document.getElementById("IdName");
+
+## Separation of concerns
+- document.querySelector("button").classList.add("invisible"); -> And this class can have associated a new style in the style.css
+- document.querySelector("button").classList.remove("invisible");
+- document.querySelector("button").classList.toggle("invisible"); -> It applies it if not applied yet and viceversa
+
+## Modifying HTML attributes
+- document.querySelector("a").attributes;
+- document.querySelector("a").getAttributes("href"); -> Gives you the irl it points to
+- document.querySelector("a").setAttributes("href", "https://www.bing.com");
+
+## Events listeners and anynnimous functions
+- document.querySelector('.drum').addEventListener('click', handleClick); -> You need to define the function handleClick yourself. Note handleClick goes without parenthesis
+
+document.querySelector('.drum').addEventListener('click', function(){
+    alert("I got clicked!);
+});
+
+## Higher order functions
+you can define funtions in the parameters of another function
+
+## Switch statements
+switch (expression){
+    case "w":
+        var audio = new Audio('sounds/tom-1.mp3');
+        audio.play();
+        break;
+    case "a":
+        var audio = new Audio('sounds/tom-1.mp3');
+        audio.play();
+        break;
+    default:
+
+}
+
+## Objects in JS
+Constructor function
+- function HouseKeeper (yearsOfExperience, name, cleaningRepertoire){
+    this.yearsOfExperience = yearsOfExperience;
+    this.name = name;
+    this.cleaningRepertoire = cleaningRepertoire;
+    this.clean = function () {
+        alert("Cleaning in progress");
+    }
+}
+- var houseKeeper1 = new HouseKeeper(9, "Tom", ["lobby", "bedroom"])
+- houseKeeper1.clean();
+
+Methods:
+- var bellBoy1 = {
+    name: "Timy",
+    age: 19,
+    hasWorkPermit: true,
+    languages: ["French", "English"],
+    moveSuitcase: function () {
+        alert("May I take your suitcase?");
+        pickupsuitcase();
+    }
+}
+
+## Identifying elements based on HTML content or events based on key presses
+- for (var i=0; i<document.querySelectorAll(".drum").length;i++){
+    document.querySelectorAll('.drum')[i].addEventListener('click', function(){
+        playSound(this.innerHTML);
+    });
+}
+
+- document.addEventListener('keydown', function(event){
+    playSound(event.key);
+});
+
+# --------------------------------------------
+
+# Jquery
+document.querySelector("h1") is the same as $("h1")
+document.querySelectorAll("h1") is the same as $("h1")
+
+## Changing style
+- $("h1").css("font-size", "5rem");
+- $("h1").addClass("big-title margin-50");
+- $("h1").removeClass("big-title");
+- $("h1").hasClass("big-title"); -> To check if it has a specific class
+
+## Changing text
+- $("h1").text("Bye") -> Same as textContent
+- $("h1").html("<em>Bye</em>") -> Same as innerHTML
+
+## Manipulate attributes (e.g. src of an image or href in an a)
+- $("img").attr("src", "/path/to/img");
+- $("a").attr("href", "https//:new/url");
+
+## Add events listeners
+- $("h1").click(function() {        -> This will add the event listener in all h1s 
+    $("h1").css("color", "purple");
+});
+- $("input").keypress(function(event){  -> in html you need to add: <input type="text" name="" value="">
+    console.log(event.key);
+});
+- $(document).keypress(function(event){  -> To check is a booton has been pressed and apply it to the whole document
+    console.log(event.key);
+});
+
+Another way to add event listeners is through the method .on("typeOfEvent", function)
+- $("h1".on("mouse", function(){
+    $("h1").css("color", "purple");
+}))
+
+## Adding and removing elements with jQuery
+To add elements
+- $("h1").before("<button>New</button>");
+- $("h1").after("<button>New</button>");
+- $("h1").prepend("<button>New</button>");  -> gets added inside the h1 before its content
+- $("h1").append("<button>New</button>");   -> gets added inside the h1 after its content
+
+to remove elements
+- $("button").remove();
+
+## Website animations with jQuery
+- $("button").on("click", function() {
+    $("h1").hide();                             -> .hide method
+});
+
+You also have .show(), .toggle() methods
+The same way we have .fadeIn(), .fadeOut() and .fadeToggle() methods
+Also .slideUp(), .slideDown() and slideToggle() methods
+Also .animate({opacity: 0.5}); allows you to make a custom animation (only works with numeric value)
+
+
+# The Unix Command Line
+- ls
+- pwd
+- cd
+- mkdir
+- touch Text2.txt
+- start Text2.txt   -> will open with text editor
+- code Text2.txt    -> Will open with VS
+- rm text2.txt  -> Removes a file
+- rm *  -> Removes all in that directory
+- rm -r directoryName/  -> Removes everythig 
+
+Shortcuts:
+- ctrl + u -> To delete the line
+- ctrl + -> or <- to move faster along the line
+
+# Node.js
+## Using node
+- node -v
+- node index.js
+
+## Native node modules
+- const fs = require('node:fs'); -> Old way of importing
+
+## NPM packages
+- npm init -> Creates the package.json config file
+- npm install <something> -> Installs an npm package (npmjs.com) or npm i <something>. If you dont specify the package it will install everything specified in the package.json
+- In the package.json file you can add: "type":"module", to refer modules using ECMAScript
+
+## Express
+- netstat -ano | findstr "LISTENING" -> To check which ports are already in use
+-   import express from 'express';
+    const app = express();
+
+    app.listen(3000, () => {
+        console.log('Server is running on port 3000');
+    });
+
+- Request Vocab
+    - GET
+    - POST
+    - PUT -> Replace
+    - PATCH
+    - DELETE
+
+- nodemon index.js -> It automatically restarts the server every tieme there is a change
+- npm i -g nodemon -> -g stands for global and it is used to install it in all out projects
+
+## HTTP Requests
+-   import express from 'express';
+    const app = express();
+
+    app.get("/", (req, res) => {
+        res.send(<h1>Home Page</h1>);
+        res.sendStatus(200);
+    })
+
+    app.listen(3000, () => {
+        console.log('Server is running on port 3000');
+    });
+
+## Middlewares
+bodyParser
+- app.use(bodyParser.urlencoded({ extended: true})); -> With this one you will be able to access the req object of your callback
+
+Types:
+1. Pre-processing e.g. bodyParser
+2. Logging e.g. Morgan -> Used to log requests from clients that come into your server
+3. Auth
+4. Error
+
+## Morgan
+- app.use(morgan("combined"));
+
+## Custom middlewares
+- function logger(req, res, next) {
+  console.log(req.method, req.url);
+  next();
+}
+- app.use(logger)
+
+## Types of responses
+- res.sendFile()
+- res.redirect("/")
+- res.render("something.ejs")
+
+## EJS Tags
+- <%= VARIABLE %> -> JS output
+- <% JS code %> -> JS execute
+- <%- <h1>Hello</h1> %> -> Render HTML
+- <%%  %%> -> Show <% or %>
+- <%# This is a comment %> -> For comments
+- <%- include("header.ejs") %> -> Insert another EJS file
+
+## How to check from EJS if you re passing data
+-   <% if (locals.NameOfVariable) { %>
+
+## Static files
+- app.use(express.static("public")); -> Public is the name of the folder where you store all the files
+
+## Partials
+- <%- include("header.ejs") %>
+- <%- include("footer.ejs") %>
+--------------------------------------------------------------------------------------------
+
+# Git And GitHib
+- git status
+- git add
+- git commit -m
+- git diff fileName -> Checks the differences
+- git checkout fileName -> A modified file which hasnt been commited gets restored to the last commit
+
+## GitHub
+- git remote add origin <urlOfYourRepo>
+- git push -u origin main -> Origin is the remote name defined in the line above and main is the branch name where we will be pushing to
+- git tm --cached -r . ->Removes files from staging area
+
+## Gitignore
+Templates for the gitignore can be found here: https://github.com/github/gitignore
+
+## Branching
+- git branch new_branch_name -> To create a new branch
+- git branch -> To see all branches
+- git checkout name_ofbranch -> To switch branch
+- git checkout -b [yourbranchname] -> To create a new branch and switch to it
+- git merge name_of_branch -> You merge that branch into main
+
+## APIs
+Difference between JSON and JS Object is that JSON keys are strings whereas in a js object they are not
+
+- const jsonData = JSON.stringify(data); -> data object is transformed into JSON
+
+- const data = JSON.parse(jsonData); -> Json data is transformed into an object
