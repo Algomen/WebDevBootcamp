@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/header') %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Name Letters</title>
-</head>
+<% if (posts.length === 0) { %>
+    <div class="alert alert-warning" role="alert">
+        <p>No posts have been published yet. Click on the New Post bottom below and start writing.</p>
+    </div>
+<% } %>
+<% posts.forEach(post => { %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title"><%= post.title %></h2>
+        <p class="card-text" id="post-<%= post.id %>"><%= post.body.substring(0, 100) %>...</p>
+        <a href="/posts/<%= post.id %>" class="btn btn-secondary btn-sm float-right mt-2">Read more</a>
+      </div>
+    </div>
+<% }); %>
 
-<body>
-  <!-- Write your code here -->
-  <form action="/submit" method="POST">
-    <input type="text" name="fName" placeholder="First name">
-    <input type="text" name="lName" placeholder="Last name">
-    <input type="submit" value="OK">
-  </form>
-</body>
+<div class="text-center mt-4">
+    <a href="/newpost" class="btn btn-primary custom-new-post">New Post</a>
+</div>
 
-</html>
+
+
+<%- include('partials/footer') %>

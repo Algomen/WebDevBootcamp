@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<div class="card mb-4">
+    <div class="card-body">
+      <h2 class="card-title"><%= postP.title %></h2>
+      <p class="card-text" id="post-<%= postP.id %>"><%= postP.body %></p>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="/editpost/<%= postP.id %>" class="btn btn-light">Edit</a>
+    <a href="/deletepost/<%= postP.id %>" class="btn btn-danger" onclick="return confirmDelete()">Delete</a>
+    <a href="/" class="btn btn-secondary">Go back</a>
+</div>
+
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this post?');
+    }
+</script>
+
+
+<%- include('partials/footer') %>
